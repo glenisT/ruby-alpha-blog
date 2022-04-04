@@ -1,5 +1,4 @@
 class Article < ApplicationRecord
-
-    validates :title, presence: true; #makes it so that the presence of a title is always required to create a new database entry
-
+    validates :title, presence: true, length: {minimum: 6, maximum:100}; #makes it so that the presence of a title is always required (with according length) to create a new database entry
+    validates :description, presence: true, length: {minimum: 10, maximum:300};
 end

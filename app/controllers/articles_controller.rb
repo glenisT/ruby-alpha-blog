@@ -6,4 +6,11 @@ class ArticlesController < ApplicationController
     def index   #shows list of articles
         @articles = Article.all
     end
+
+    def new
+    end
+
+    def create
+    end
+    
 end

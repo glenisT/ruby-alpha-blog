@@ -11,9 +11,8 @@
   </head>
 
   <body>
-    <% flash.each do |name, msg| %>
-      <%= msg %>
-    <% end %>
+    <%# _messages.html.erb is a PARTIAL (for saving redundant code) and Rails recognizes its path without the need for the '_' before its name %>
+    <%= render 'layouts/messages'%>
     <%= yield %>
   </body>
 </html>

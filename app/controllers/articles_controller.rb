@@ -1,7 +1,9 @@
 class ArticlesController < ApplicationController
+    before_action :set_article, only: [:show, :edit, :update, :destroy]  #executes set_article method before any of the code in the actions specified within []
+
     #methods a.k.a actions logically paired as follows: index-show, new-create, edit-update
     def show    #shows singular articles and their attributes
-        @article = Article.find(params[:id])  #instance variable (so it's available to the view) that saves the Article pbject info and shows it through picking the corresponding id from the params hash
+          #instance variable (so it's available to the view) that saves the Article object info and shows it through picking the corresponding id from the params hash
     end
 
     def index   #shows list of articles
@@ -13,12 +15,12 @@ class ArticlesController < ApplicationController
     end
 
     def edit  #sends us to the specific article using the id(just like new)
-        @article = Article.find(params[:id]) #we need the initialization and id because we use the instance variable in new.html.erb error flashing, and id for the url path
+         #we need the initialization and id because we use the instance variable in new.html.erb error flashing, and id for the url path
 
     end
 
     def create
-        @article = Article.new(params.require(:article).permit(:title, :description)) #require both fields to create new article
+        @article = Article.new(article_params) #require both fields to create new article
         if @article.save
             flash[:notice] = "Article was created successfully."  #flash is a Rails heper that can make messages for the user (works like a hash, keys being :notice and :alert)
             redirect_to article_path(@article)  #this redirects after saving new article to db. 'article' is the prefix of the page and Rails knows by itself to send to the (@article) corresponding page. Needs to be 'enabled' with embeded html(look at application.html.erb)
@@ -28,8 +30,8 @@ class ArticlesController < ApplicationController
     end
 
     def update #updates the article 'edit' sent us to, with the new information
-        @article = Article.find(params[:id])
-        if @article.update(params.require(:article).permit(:title, :description))
+        
+        if @article.update(article_params)
             flash[:notice] = "Article was updated successfully"
             redirect_to article_path(@article)
         else
@@ -38,8 +40,19 @@ class ArticlesController < ApplicationController
     end
 
     def destroy
-        @article = Article.find(params[:id])
+        
         @article.destroy
         redirect_to articles_path
     end
+
+    #Methods for DRY code | Private to make them available only within this controller
+    private
+    def set_article
+        @article = Article.find(params[:id])
+    end
+
+    def article_params
+        params.require(:article).permit(:title, :description)
+    end
+
 end

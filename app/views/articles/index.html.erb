@@ -6,11 +6,11 @@
         <tr>
         <th>Title</th>
         <th>Description</th>
-        <th>Actions</th>
+        <th colspan = "3">Actions</th>
     </tr>
     </thead>
 
-<%# cycle through all articles and show them all in a table %>
+    <%# cycle through all articles and show them all in a table %>
     <tbody>
         <% @articles.each do |article| %>
             <tr>
@@ -18,12 +18,15 @@
                 <td><%= article.description %></td>
                 <%# shows selected article page %>
                 <td><%= link_to 'Show', article_path(article)%></td>
-                <%# shows selected article EDIT page %>
-                <td><%= link_to 'Edit', edit_article_path(article), data: { turbo_method: :get }%></td>
+                <%# shows selected article EDIT page. edit_article_path because in routes, the prefix for edit is edit_article && (article) because we need the id for the path as well%>
+                <td><%= link_to 'Edit', edit_article_path(article), data: { turbo_method: :get}%></td>
                 <%# 'link_to Action/link name, path, method: :action' creates a link to the page related to the action. article_path(article) is the same 
                 as article_path(article.id), but Ruby already knows because this is a path (articles/:id) %>
-                <td><%= link_to 'Delete', article_path(article), data: { turbo_method: :delete } %></td>
+                <td><%= link_to 'Delete', article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
             </tr>
         <% end %>
     </tbody>
 </table>
+<br>
+
+<%= button_to 'Create Article', new_article_path(), method: :get %>

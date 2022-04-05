@@ -8,12 +8,16 @@ class ArticlesController < ApplicationController
     end
 
     def new
+        @article = Article.new  #on the first time we open articles/new we have an empty article object so that it doesnt throw 'nil class' error
     end
 
     def create
-        @article = Article.new(params.require(:article).permit(:title, :description))
-        @article.save
-        redirect_to article_path(@article)  #this redirects after saving new article to db. 'article' is the prefix of the page and Rails knows by itself to send to the (@article) corresponding page
+        @article = Article.new(params.require(:article).permit(:title, :description)) #require both fields to create new article
+        if @article.save
+            flash[:notice] = "Article was created successfully."  #flash is a Rails heper that can make messages for the user (works like a hash, keys being :notice and :alert)
+            redirect_to article_path(@article)  #this redirects after saving new article to db. 'article' is the prefix of the page and Rails knows by itself to send to the (@article) corresponding page. Needs to be 'enabled' with embeded html(look at application.html.erb)
+        else
+            render :new, status: :unprocessable_entity    #renders the new.html.erb file with the error messages
+        end
     end
-
 end

@@ -1,6 +1,17 @@
 <h1>Create a new article</h1>
 <hr>
 
+<%# this block displays the errors in case the new article has them, in a unordered list format %>
+<% if @article.errors.any? %>
+    <h2>The following errors prevented the article from being saved:</h2>
+    <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+            <li> <%= msg %> </li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%# Rails provides form_with helper forms to receive and create new objects and save them to your DB %>
 <%= form_with scope: :article, url: articles_path, local: true do |f| %> 
 
     <p>

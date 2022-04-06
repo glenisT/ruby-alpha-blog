@@ -9,4 +9,6 @@ class User < ApplicationRecord
                 uniqueness: {case_sensitive: false}, 
                 length: {maximum: 105}, 
                 format: {with: VALID_EMAIL_REGEX}
+
+    has_many :articles #creates one-to-many 'many' side of association with Article
 end

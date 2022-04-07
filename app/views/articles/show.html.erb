@@ -1,14 +1,16 @@
 <h1>Showing article details</h1>
 <hr>
-<p><strong>Title: </strong><%= @article.title %></p>
-<br>
-<p><strong>Description: </strong><%= @article.description %></p>
-<br>
-<p><strong>Owned by: </strong><%= @article.user.username if @article.user %></p>
-<br>
+ <div class="show-container">
+    <p><strong>Title: </strong><%= @article.title %></p>
+    <br>
+    <p><strong>Description: </strong><%= @article.description %></p>
+    <br>
+    <p><strong>Owned by: </strong><%= @article.user.username if @article.user %></p>
+    <br>
+ </div>
 
-<span style = "display:flex">
-    <%= button_to 'Edit', edit_article_path(@article), method: :get %> 
-    <p style = "margin-left:5px;"><%= button_to 'Delete', article_path(@article), method: :delete, onclick: "return confirm('Are you sure?')" %> </p>
-    <p style = "margin-left:5px"><%= button_to 'Return to Articles', articles_path, method: :get%></p>
+ <span style = "display:flex; justify-content: center">
+    <%= button_to 'Edit', edit_article_path(@article), method: :get, style:"font-size: large" %> 
+    <p style = "margin-left:5px;"><%= button_to 'Delete', article_path(@article), method: :delete, onclick: "return confirm('Are you sure?')", style:"font-size: large" %> </p>
+    <p style = "margin-left:5px"><%= button_to 'Return to Articles', articles_path, method: :get, style:"font-size: large" %></p>
 </span>

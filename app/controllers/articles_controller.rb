@@ -21,6 +21,7 @@ class ArticlesController < ApplicationController
 
     def create
         @article = Article.new(article_params) #require both fields to create new article
+        @article.user = User.first
         if @article.save
             flash[:notice] = "Article was created successfully."  #flash is a Rails heper that can make messages for the user (works like a hash, keys being :notice and :alert)
             redirect_to article_path(@article)  #this redirects after saving new article to db. 'article' is the prefix of the page and Rails knows by itself to send to the (@article) corresponding page. Needs to be 'enabled' with embeded html(look at application.html.erb)

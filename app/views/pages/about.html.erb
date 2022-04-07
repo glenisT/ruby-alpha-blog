@@ -1,6 +1,8 @@
 <h1>This is the about page</h1>
 <hr>
 
-<%= button_to 'Articles Listing', articles_path, method: :get%>
-<br>
-<%= button_to 'Home Page', root_path, method: :get%>
+<div style = "display:grid; justify-content:center;" >
+    <%= button_to 'Articles Listing', articles_path, method: :get, style:"font-size:large; margin-bottom: 10px" %>
+    <br>
+    <%= button_to 'Home Page', root_path, method: :get, style:"font-size:large;" %>
+</div>

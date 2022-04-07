@@ -4,6 +4,8 @@
 <br>
 <p><strong>Description: </strong><%= @article.description %></p>
 <br>
+<p><strong>Owned by: </strong><%= @article.user.username if @article.user %></p>
+<br>
 
 <span style = "display:flex">
     <%= button_to 'Edit', edit_article_path(@article), method: :get %> 

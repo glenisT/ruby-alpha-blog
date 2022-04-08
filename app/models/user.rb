@@ -10,5 +10,7 @@ class User < ApplicationRecord
                 length: {maximum: 105}, 
                 format: {with: VALID_EMAIL_REGEX}
 
+    before_save { self.email = email.downcase } #before saving to database, downcase the email of the object we just created(with self.)
+
     has_many :articles #creates one-to-many 'many' side of association with Article
 end

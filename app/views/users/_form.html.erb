@@ -3,28 +3,34 @@ makes edit.html.erb a better, more universal candidate for a partial %>
 
 <div class="form-container">
     <%# this block displays the errors in case the new article has them, in a unordered list format %>
-    <% if @article.errors.any? %>
+    <% if @user.errors.any? %>
         <h2>The following errors prevented the article from being saved:</h2>
         <ul>
-            <% @article.errors.full_messages.each do |msg| %>
+            <% @user.errors.full_messages.each do |msg| %>
                 <li> <%= msg %> </li>
             <% end %>
         </ul>
     <% end %>
 
     <%# This way of implementing forms_with makes sure we get the information for the fields from our existing instance variable %>
-    <%= form_with(model: @article, local: true) do |f| %> 
+    <%= form_with(model: @user, local: true) do |f| %> 
 
         <p>
-            <%= f.label :title, style:"font-weight:bold", placeholder: "Enter article title" %>
+            <%= f.label :username, style:"font-weight:bold", placeholder: "Enter a username" %>
             <br>
-            <%= f.text_field :title %>
+            <%= f.text_field :username %>
         </p>
 
         <p>
-            <%= f.label :description, style:"font-weight:bold", placeholder: "Article description" %>
+            <%= f.label :email, style:"font-weight:bold" %>
             <br>
-            <%= f.text_area :description %>
+            <%= f.email_field :email, placeholder: "example@provider.com" %>
+        </p>
+
+        <p>
+            <%= f.label :password, style:"font-weight:bold" %>
+            <br>
+            <%= f.password_field :password, placeholder: "Create a password" %>
         </p>
 
         <p>

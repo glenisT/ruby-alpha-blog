@@ -1,8 +1,12 @@
-<h1>This is the about page</h1>
+<h1>About</h1>
 <hr>
 
 <div style = "display:grid; justify-content:center;" >
-    <%= button_to 'Articles Listing', articles_path, method: :get, style:"font-size:large; margin-bottom: 10px" %>
-    <br>
-    <%= button_to 'Home Page', root_path, method: :get, style:"font-size:large;" %>
+    <p>This is my first web application made with Ruby on Rails.</p>
+
+    <div style = "display:flex; margin-left:11vh">
+        <%= button_to 'Articles Listing', articles_path, method: :get, style:"font-size:large; margin-bottom: 10px" %>
+        <br>
+        <%= button_to 'Home Page', root_path, method: :get, style:"font-size:large; margin-left:10px" %>
+    </div>
 </div>

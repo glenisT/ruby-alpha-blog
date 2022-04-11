@@ -13,4 +13,6 @@ class User < ApplicationRecord
     before_save { self.email = email.downcase } #before saving to database, downcase the email of the object we just created(with self.)
 
     has_many :articles #creates one-to-many 'many' side of association with Article
+
+    has_secure_password #after installing bcrypt from Gemfile (you may google this)
 end

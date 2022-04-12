@@ -2,9 +2,12 @@
 <hr>
 
 <div style = "display:grid; justify-content:center;" >
-    <p>This is my first web application made with Ruby on Rails.</p>
 
-    <div style = "display:flex; margin-left:11vh">
+    <pre style = "font-size:x-large; font-weight:bold">  This is my first web application made with Ruby on Rails.
+    With AlphaBlog, you will be able to create an account,
+      create articles, and do all basic CRUD operations.</pre>
+
+    <div style = "display:flex; justify-content:center">
         <%= button_to 'Articles Listing', articles_path, method: :get, style:"font-size:large; margin-bottom: 10px" %>
         <br>
         <%= button_to 'Home Page', root_path, method: :get, style:"font-size:large; margin-left:10px" %>

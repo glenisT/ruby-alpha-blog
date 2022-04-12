@@ -1,16 +1,37 @@
-@keyframes expandColor {
+@keyframes green {
     from{
-        background-size: 0%;
         background-color: white;
-        color: black;
+        color: green;
     }
     to{
-        background-size: 100%;
-        background-color: rgb(80, 80, 80);
+        background-color: green;
         color: white;
     }
 }
 
+@keyframes turqoise {
+    from{
+        background-color: white;
+        color: turquoise;
+    }
+    to{
+        background-color: turquoise;
+        color: white;
+    }
+}
+
+@keyframes red {
+    from{
+        background-color: white;
+        color: rgb(212, 0, 0);
+    }
+    to{
+        background-color: rgb(212, 0, 0);
+        color: white;
+    }
+}
+
+/* -----------------Containers----------------- */
 .index-container
 {
     display: grid;
@@ -19,7 +40,6 @@
     width: 100%;
 }
 
-/* table elements styling */
 .index-articles-grid
 {
     display: grid;
@@ -37,6 +57,7 @@
     box-shadow: 0.2vh 0.4vh 1vh 0.2vh rgba(73, 73, 73, 0.507);
 }
 
+/* -----------------Article Cards----------------- */
 .index-article-user
 {
     display: flex;
@@ -74,7 +95,7 @@
     font-size: small;
 }
 
-/* links and buttons styling */
+/* -----------------Buttons----------------- */
 .index-article-actions
 {
     padding: 1vh;
@@ -89,24 +110,58 @@
     padding: 5px;
 }
 
+/* ----------------------------------------- */
 .show
 {
     border: 1px solid green;
     color: green;
 }
 
+.show:hover
+{
+    animation: green 0.5s forwards;
+}
+
+.show:active
+{
+    background-color: rgb(0, 99, 0) !important;
+}
+
+/* ----------------------------------------- */
 .edit
 {
     border: 1px solid turquoise;
     color: turquoise;
 }
 
+.edit:hover
+{
+    animation: turqoise 0.5s forwards;
+}
+
+.edit:active
+{
+    background-color: rgb(20, 190, 173) !important;
+}
+
+/* ----------------------------------------- */
 .delete
 {
     border: 1px solid rgb(212, 0, 0);
     color: rgb(212, 0, 0);
 }
 
+.delete:hover
+{
+    animation: red 0.5s forwards;
+}
+
+.delete:active
+{
+    background-color: rgb(179, 0, 0) !important;
+}
+
+/* -----------------Navbar Links----------------- */
 .index-buttons-container
 {
     display: flex;

@@ -16,9 +16,9 @@ makes edit.html.erb a better, more universal candidate for a partial %>
     <%= form_with(model: @user, local: true) do |f| %> 
 
         <p>
-            <%= f.label :username, style:"font-weight:bold", placeholder: "Enter a username" %>
+            <%= f.label :username, style:"font-weight:bold"%>
             <br>
-            <%= f.text_field :username %>
+            <%= f.text_field :username, placeholder: "Enter a username" %>
         </p>
 
         <p>

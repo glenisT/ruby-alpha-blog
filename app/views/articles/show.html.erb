@@ -1,5 +1,11 @@
-<h1>Showing article details</h1>
-<hr>
+<div class = "header">
+    <h1>
+        AlphaBlog
+        <%= link_to 'Home', root_path(), method: :get, class: "index-button-to" %>
+    </h1>
+</div>
+
+<h2>Showing article details</h2>
  <div class="show-container">
     <p><strong>Title: </strong><%= @article.title %></p>
     <br>

@@ -15,6 +15,8 @@
 {
     display: grid;
     justify-content: center;
+    background-color: lightslategray;
+    width: 100%;
 }
 
 /* table elements styling */
@@ -115,5 +117,5 @@
 .index-button-to
 {
     font-size: large;
-    
+    color: white;
 }

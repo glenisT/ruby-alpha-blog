@@ -1,15 +1,18 @@
-<h1>About</h1>
-<hr>
+<div class = "header">
+    <h1>
+        AlphaBlog
+        <%= link_to 'Home', root_path, method: :get, style:"font-size:large; margin-left:10px", class: "index-button-to" %>
+        <%= link_to 'Sign Up', signup_path, method: :get , style:"font-size:large; margin-left:10px", class: "index-button-to" %>
+        <%= link_to 'Articles', articles_path, method: :get, style:"font-size:large; margin-bottom: 10px", class: "index-button-to" %>
+    </h1>
+</div>
 
-<div style = "display:grid; justify-content:center;" >
+<div class = "about-container">
 
-    <pre style = "font-size:x-large; font-weight:bold">  This is my first web application made with Ruby on Rails.
+  <h2>About</h2>
+
+  <pre style = "font-size:x-large; font-weight:bold; margin-top:-40vh">  This is my first web application made with Ruby on Rails.
     With AlphaBlog, you will be able to create an account,
       create articles, and do all basic CRUD operations.</pre>
 
-    <div style = "display:flex; justify-content:center">
-        <%= button_to 'Articles Listing', articles_path, method: :get, style:"font-size:large; margin-bottom: 10px" %>
-        <br>
-        <%= button_to 'Home Page', root_path, method: :get, style:"font-size:large; margin-left:10px" %>
-    </div>
 </div>

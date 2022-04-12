@@ -1,10 +1,12 @@
-<h1>Welcome to AlphaBlog!</h1>
-<hr>
+<div class = "header">
+    <h1>
+        AlphaBlog
+        <%= link_to 'Articles', articles_path, method: :get, style:"font-size:large; margin-bottom: 10px", class: "index-button-to" %>
+        <%= link_to 'Sign Up', signup_path, method: :get , style:"font-size:large; margin-left:10px", class: "index-button-to"  %>
+        <%= link_to 'About Page', about_path, method: :get , style:"font-size:large; margin-left:10px", class: "index-button-to"  %>
+    </h1>
+</div>
 
-<div style = "display:flex; justify-content:center">
-    <%= button_to 'Articles Listing', articles_path, method: :get, style:"font-size:large; margin-bottom: 10px" %>
-    <br>
-    <%= button_to 'Sign Up', signup_path, method: :get , style:"font-size:large; margin-left:10px" %>
-    <br>
-    <%= button_to 'About Page', about_path, method: :get , style:"font-size:large; margin-left:10px" %>
+<div class="home-container">
+    <h2>Welcome to AlphaBlog!</h2>
 </div>

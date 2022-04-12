@@ -1,4 +1,9 @@
-<h1>Create a new article</h1>
-<hr>
+<div class = "header">
+    <h1>
+        AlphaBlog
+        <%= link_to 'Home', root_path(), method: :get, class: "index-button-to" %>
+    </h1>
+</div>
+<h2>Create a new article</h2>
 
 <%= render 'form' %>

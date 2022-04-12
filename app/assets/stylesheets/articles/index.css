@@ -11,54 +11,98 @@
     }
 }
 
-/* table elements styling */
-.index-articles-table
-{
-    border-spacing: 20px;
-    border: 1px solid black;
-    box-shadow: 1vh 1vh 4vh 0.5vh;
-}
-
-.index-articles-table td
-{
-    text-align: center;
-}
-
-.index-articles-table th
-{
-    border-bottom: 1px solid black;
-}
-
-.index-table-container
+.index-container
 {
     display: flex;
     justify-content: center;
+}
+
+/* table elements styling */
+.index-articles-grid
+{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(1, 0vh);
     margin-top: 5vh;
 }
 
+.index-article-container
+{
+    width: 20vw !important;
+    height: auto;
+    margin-bottom: 10vh;
+    box-shadow: 0.2vh 0.4vh 1vh 0.2vh rgba(73, 73, 73, 0.507);
+}
+
+.index-article-user
+{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(211, 211, 211);
+    border-bottom: 1px solid;
+    padding: 5px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.index-article-title
+{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    color: green;
+    font-weight: bold;
+}
+
+.index-article-description
+{
+    display: flex;
+    justify-content: center;
+}
+
+.index-created-updated
+{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(211, 211, 211);
+    color: rgb(80, 80, 80);
+    border-top: 1px solid black;
+    padding: 5px;
+    font-size: small;
+}
+
 /* links and buttons styling */
+.index-article-actions
+{
+    padding: 1vh;
+    display: flex;
+    justify-content: space-around;
+}
+
 .index-link-to
 {
     text-decoration: none;
-    border: 1px solid rgba(0, 0, 0, 0.596);
-    border-radius: 40%;
+    border-radius: 25%;
     padding: 5px;
-    color: black;
-    box-shadow: 0.2vh 0.4vh 1vh 0.2vh rgb(73, 73, 73);
 }
 
-.index-link-to:hover
+.show
 {
-    animation: expandColor 0.25s forwards;
+    border: 1px solid green;
+    color: green;
 }
 
-.index-link-to:active
+.edit
 {
-    background-color: rgb(58, 58, 58);
-    color: white;
-    position: relative;
-    top: 2px;
-    box-shadow: 0 0.4vh 1vh 0.2vh rgb(73, 73, 73);
+    border: 1px solid turquoise;
+    color: turquoise;
+}
+
+.delete
+{
+    border: 1px solid rgb(212, 0, 0);
+    color: rgb(212, 0, 0);
 }
 
 .index-buttons-container

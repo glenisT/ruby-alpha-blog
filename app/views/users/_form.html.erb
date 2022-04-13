@@ -34,7 +34,8 @@ makes edit.html.erb a better, more universal candidate for a partial %>
         </p>
 
         <p>
-            <%= f.submit "Sign Up", style:"font-size:large" %>
+            <%# display different messages depending on if the user is being created or updated %>
+            <%= f.submit(@user.new_record? ? "Sign Up" : "Update Account", style:"font-size:large") %> 
         </p>
         
     <% end %>

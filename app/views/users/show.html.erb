@@ -2,7 +2,7 @@
     <h1>
         AlphaBlog
         <%= link_to 'Home', root_path(), method: :get, class: "index-button-to" %>
-        <%= link_to 'Edit Profile', edit_user_path, method: :get, class: "index-button-to" %>
+        <%= link_to 'Articles', articles_path, method: :get, style:"font-size:large; margin-bottom: 10px", class: "index-button-to" %>
     </h1>
 </div>
 
@@ -11,6 +11,7 @@
 <div class="show-users-image">
     <%# gravatar_for method created in helpers/application_helper %>
     <%= gravatar_for @user, size: 200 %>
+    <%= link_to "Edit Profile", edit_user_path(@user), class: "index-link-to edit" %>
 </div>
 
 <h3 style = "text-align:center">Articles</h3>

@@ -20,3 +20,5 @@
     <p style = "margin-left:5px;"><%= button_to 'Delete', article_path(@article), method: :delete, onclick: "return confirm('Are you sure?')", style:"font-size: large" %> </p>
     <p style = "margin-left:5px"><%= button_to 'Return to Articles', articles_path, method: :get, style:"font-size: large" %></p>
 </span>
+
+<%= render 'layouts/footer' %>

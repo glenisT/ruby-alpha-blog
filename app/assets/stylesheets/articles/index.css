@@ -62,7 +62,7 @@
     display: flex;
     justify-content: center;
     background-color: rgb(211, 211, 211);
-    border-bottom: 1px solid;
+    border-bottom: 1px solid black;
     padding: 5px;
     font-weight: bold;
     font-style: italic;
@@ -105,7 +105,7 @@
 .index-link-to
 {
     text-decoration: none;
-    border-radius: 25%;
+    border-radius: 10px;
     padding: 5px;
 }
 

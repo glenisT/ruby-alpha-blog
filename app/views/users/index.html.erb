@@ -1,0 +1,49 @@
+<div class = "header">
+    <h1>
+        AlphaBlog
+        <%= link_to 'Home', root_path(), method: :get, class: "index-button-to" %>
+        <%= link_to 'Articles', articles_path, method: :get, style:"font-size:large; margin-bottom: 10px", class: "index-button-to" %>
+    </h1>
+</div>
+
+<h2>Alpha Bloggers</h2>
+
+<div class="index-container">
+    <%# cycle through all articles and show them all in a table %>
+    <% @users.each do |user| %>
+
+        <div class = "index-article-container">
+
+            <div class="index-article-user" style = "color:rgb(16, 136, 255);">
+                <%= user.username %>
+            </div>
+
+            <div class="white">
+
+                <div class="index-article-title">
+                    <%= gravatar_for(user, size: 150) %>
+                </div>
+
+                <div class="index-article-description">
+                    <%# gives the plural word for multiple articles %>
+                    <%= pluralize(user.articles.count, "article") %>
+                </div>
+
+                <div class="index-article-actions">
+                    <%# shows selected article page %>
+                    <%= link_to 'View Profile', user, class: "index-link-to show" %>
+                    <%# shows selected article EDIT page. edit_article_path because in routes, the prefix for edit is edit_article && (article) because we need the id for the path as well%>
+                    <%= link_to 'Edit Profile', edit_user_path(user), data: { turbo_method: :get}, class: "index-link-to edit" %>
+                </div>
+                        
+            </div>
+                        
+
+            <div class="index-created-updated">
+                Joined <%= time_ago_in_words(user.created_at) %> ago.
+            </div>
+
+        </div>
+        
+    <% end %>
+</div>

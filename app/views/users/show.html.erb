@@ -1,0 +1,17 @@
+<div class = "header">
+    <h1>
+        AlphaBlog
+        <%= link_to 'Home', root_path(), method: :get, class: "index-button-to" %>
+        <%= link_to 'Edit Profile', edit_user_path, method: :get, class: "index-button-to" %>
+    </h1>
+</div>
+
+<h2> <%= @user.username %>'s profile </h2>
+
+<div class="show-users-image">
+    <%# gravatar_for method created in helpers/application_helper %>
+    <%= gravatar_for @user, size: 200 %>
+</div>
+
+<h3 style = "text-align:center">Articles</h3>
+<%= render 'articles/article' %>

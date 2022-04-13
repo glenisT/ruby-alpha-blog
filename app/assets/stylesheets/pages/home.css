@@ -2,7 +2,6 @@
 {
     display: grid;
     justify-content: center;
-    background-color: lightslategray;
     width: 100%;
     height: 100vh;
 }

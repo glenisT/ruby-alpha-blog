@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :users, except: [:new] #except new because it is already defined above
 
   get 'login', to: 'sessions#new'
-  get 'login' => :post, to: 'sessions#create'
+  post 'login', to: 'sessions#create'
   get 'logout' => :destroy, to: 'sessions#destroy'
 end

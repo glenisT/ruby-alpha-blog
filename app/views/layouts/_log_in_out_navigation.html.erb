@@ -1,0 +1,7 @@
+<% if logged_in? %>
+    <%= link_to current_user.username, user_path(current_user), method: :delete, style:"font-size:large; margin-bottom: 10px; color:cyan", class: "index-button-to" %>
+    <%= link_to 'Log Out', logout_path, method: :delete, style:"font-size:large; margin-bottom: 10px", class: "index-button-to" %>
+<% else %>
+    <%= link_to 'Sign Up', signup_path, method: :get, style:"font-size:large; margin-bottom: 10px", class: "index-button-to" %>
+    <%= link_to 'Log In', login_path, method: :get, style:"font-size:large; margin-bottom: 10px", class: "index-button-to" %>
+<% end %>

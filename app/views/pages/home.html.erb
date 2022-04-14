@@ -1,10 +1,9 @@
 <div class = "header">
     <h1>
         AlphaBlog
-        <%= link_to 'Sign Up', signup_path, method: :get , style:"font-size:large; margin-left:10px", class: "index-button-to"  %>
-        <%= link_to 'Log In', login_path, method: :get , style:"font-size:large; margin-left:10px", class: "index-button-to"  %>
         <%= link_to 'Articles', articles_path, method: :get, style:"font-size:large; margin-bottom: 10px", class: "index-button-to" %>
         <%= link_to 'Bloggers', users_path, method: :get , style:"font-size:large; margin-left:10px", class: "index-button-to"  %>
+        <%= render 'layouts/log_in_out_navigation'%>
         <%= link_to 'About Page', about_path, method: :get , style:"font-size:large; margin-left:10px", class: "index-button-to"  %>
     </h1>
 </div>

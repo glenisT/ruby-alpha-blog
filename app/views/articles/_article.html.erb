@@ -21,11 +21,13 @@
                 <div class="index-article-actions">
                     <%# shows selected article page %>
                     <%= link_to 'Show', article_path(article), class: "index-link-to show" %>
-                    <%# shows selected article EDIT page. edit_article_path because in routes, the prefix for edit is edit_article && (article) because we need the id for the path as well%>
-                    <%= link_to 'Edit', edit_article_path(article), data: { turbo_method: :get}, class: "index-link-to edit" %>
-                    <%# 'link_to Action/link name, path, method: :action' creates a link to the page related to the action. article_path(article) is the same 
-                    as article_path(article.id), but Ruby already knows because this is a path (articles/:id) %>
-                    <%= link_to 'Delete', article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "index-link-to delete" %>
+                    <% if logged_in? && current_user.username == article.user.username %>
+                        <%# shows selected article EDIT page. edit_article_path because in routes, the prefix for edit is edit_article && (article) because we need the id for the path as well%>
+                        <%= link_to 'Edit', edit_article_path(article), data: { turbo_method: :get}, class: "index-link-to edit" %>
+                        <%# 'link_to Action/link name, path, method: :action' creates a link to the page related to the action. article_path(article) is the same 
+                        as article_path(article.id), but Ruby already knows because this is a path (articles/:id) %>
+                        <%= link_to 'Delete', article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "index-link-to delete" %>
+                    <% end %>
                 </div>
                         
             </div>

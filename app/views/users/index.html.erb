@@ -3,7 +3,7 @@
         AlphaBlog
         <%= link_to 'Home', root_path(), method: :get, class: "index-button-to" %>
         <%= link_to 'Articles', articles_path, method: :get, style:"font-size:large; margin-bottom: 10px", class: "index-button-to" %>
-        <%= link_to 'Log Out', logout_path, method: :destroy, style:"font-size:large; margin-bottom: 10px", class: "index-button-to" %>
+        <%= render 'layouts/log_in_out_navigation'%>
     </h1>
 </div>
 
@@ -33,8 +33,10 @@
                 <div class="index-article-actions">
                     <%# shows selected article page %>
                     <%= link_to 'View Profile', user, class: "index-link-to show" %>
-                    <%# shows selected article EDIT page. edit_article_path because in routes, the prefix for edit is edit_article && (article) because we need the id for the path as well%>
-                    <%= link_to 'Edit Profile', edit_user_path(user), data: { turbo_method: :get}, class: "index-link-to edit" %>
+                    <% if logged_in? && current_user.username == user.username %>
+                        <%# shows selected article EDIT page. edit_article_path because in routes, the prefix for edit is edit_article && (article) because we need the id for the path as well%>
+                        <%= link_to 'Edit Profile', edit_user_path(user), data: { turbo_method: :get}, class: "index-link-to edit" %>
+                    <% end %>
                 </div>
                         
             </div>

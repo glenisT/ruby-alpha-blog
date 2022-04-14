@@ -2,6 +2,7 @@
     <h1>
         AlphaBlog
         <%= link_to 'Home', root_path(), method: :get, class: "index-button-to" %>
+        <%= render 'layouts/log_in_out_navigation'%>
     </h1>
 </div>
 
@@ -16,8 +17,10 @@
  </div>
 
  <span style = "display:flex; justify-content: center">
-    <%= button_to 'Edit', edit_article_path(@article), method: :get, style:"font-size: large" %> 
-    <p style = "margin-left:5px;"><%= button_to 'Delete', article_path(@article), method: :delete, onclick: "return confirm('Are you sure?')", style:"font-size: large" %> </p>
+    <% if logged_in? && current_user.username == @article.user.username %>
+        <%= button_to 'Edit', edit_article_path(@article), method: :get, style:"font-size: large" %> 
+        <p style = "margin-left:5px;"><%= button_to 'Delete', article_path(@article), method: :delete, onclick: "return confirm('Are you sure?')", style:"font-size: large" %> </p>
+    <% end %>
     <p style = "margin-left:5px"><%= button_to 'Return to Articles', articles_path, method: :get, style:"font-size: large" %></p>
 </span>
 

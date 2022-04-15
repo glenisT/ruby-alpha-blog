@@ -22,4 +22,11 @@ class SessionsController < ApplicationController
         redirect_to root_path
     end
 
+    def delete
+        User.find_by(id: session[:user_id]).delete
+        session[:user_id] = nil
+        flash[:notice] = "Profile and associated articles deleted."
+        redirect_to root_path
+    end
+
 end

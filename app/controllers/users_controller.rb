@@ -38,11 +38,8 @@ class UsersController < ApplicationController
         end
     end
 
+    #!!!user cannot delete itself from its' own controller, due to redirection problems, destroy user has been moved to session_controller
     def destroy
-        @user.destroy
-        session[:user_id] = nil
-        flash[:notice] = "Account and all associated articles deleted!"
-        redirect_to root_path
     end
 
     private

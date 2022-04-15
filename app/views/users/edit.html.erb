@@ -1,7 +1,14 @@
 <div class = "header">
     <h1>
         AlphaBlog
-        <%= link_to 'Home', root_path(), method: :get, class: "index-button-to" %>
+        <% if logged_in? %>
+            <%= link_to 'Articles', articles_path, method: :get, class: "index-button-to" %>
+            <%= link_to 'Bloggers', users_path, method: :get, class: "index-button-to" %>
+        <% else %>
+            <%= link_to 'Home', root_path(), method: :get, class: "index-button-to" %>
+            <%= link_to 'Articles', articles_path, method: :get, class: "index-button-to" %>
+            <%= link_to 'Bloggers', users_path, method: :get, class: "index-button-to" %>
+        <% end %>
         <%= render 'layouts/log_in_out_navigation'%>
     </h1>
 </div>

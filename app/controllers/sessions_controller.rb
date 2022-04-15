@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
     end
 
     def destroy_user
-        @user = User.find(params[:id])
+        @user = User.find_by(id: session[:user_id])
         if current_user != @user
             flash[:alert] = "You can only edit your own profile!"
             redirect_to current_user

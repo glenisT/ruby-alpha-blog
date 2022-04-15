@@ -38,11 +38,12 @@ class UsersController < ApplicationController
         end
     end
     
+    #!!!due to routing issues, a user's destroy action, cannot redirect to root_path,
+    #because in this controller there are methods(like set_user) which require the user_id
+    #this prevents destroy from redirecting to root_path, because rails catches error "non existing id",
+    #after it is turned into nil by the session
+    #to solve this, destroy_user is done instead in sessions_controller, and a specific path in routes is created accordingly
     def destroy
-        @user.destroy
-        session[:user_id] = nil
-        flash[:notice] = "Account and all associated articles deleted!"
-        redirect_to root_path
     end
     
     private

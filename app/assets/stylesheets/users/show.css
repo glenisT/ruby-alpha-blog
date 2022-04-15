@@ -3,3 +3,10 @@
     display: grid;
     justify-content: center;
 }
+
+.index-profile-actions
+{
+    padding: 0.5vh;
+    display: grid;
+    justify-content: center;
+}

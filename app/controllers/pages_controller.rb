@@ -4,5 +4,5 @@ class PagesController < ApplicationController
     end
 
     def about
-    end         #methods to be used in routes
+    end         
 end

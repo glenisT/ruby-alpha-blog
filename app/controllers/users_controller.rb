@@ -1,10 +1,21 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:show, :edit, :update]
+    before_action :set_user, only: [:show, :edit, :update, :destroy]
     before_action :require_user, only: [:edit, :update]
-    before_action :require_same_user, only: [:edit, :update]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
+
+    def index
+        @users = User.all
+    end
+
+    def show
+        @articles = @user.articles
+    end
 
     def new
         @user = User.new
+    end
+
+    def edit
     end
 
     def create
@@ -18,9 +29,6 @@ class UsersController < ApplicationController
         end
     end
 
-    def edit
-    end
-
     def update
         if @user.update(user_params)
             flash[:notice] = "Account updated!"
@@ -30,12 +38,11 @@ class UsersController < ApplicationController
         end
     end
 
-    def show
-        @articles = @user.articles
-    end
-
-    def index
-        @users = User.all
+    def destroy
+        @user.destroy
+        session[:user_id] = nil
+        flash[:notice] = "Account and all associated articles deleted!"
+        redirect_to root_path
     end
 
     private

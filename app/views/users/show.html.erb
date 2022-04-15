@@ -27,4 +27,16 @@
 </div>
 
 <h3 style = "text-align:center">Articles</h3>
+<% if logged_in? && current_user.username == @user.username %>
+    <% if current_user.articles.count < 1 %>
+        <div class="index-profile-actions">
+            <h4>Create your first article, <%= current_user.username %>! </h4>
+            <%= link_to "Create Article", new_article_path(), method: :get, class: "index-link-to show" %>
+        </div>
+    <% else %>
+        <div class="index-profile-actions">
+            <%= link_to "Create Article", new_article_path(), method: :get, class: "index-link-to show" %>
+        </div>
+    <% end %>
+<% end %>
 <%= render 'articles/article' %>

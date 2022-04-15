@@ -21,7 +21,7 @@
     <% if logged_in? && current_user.username == @user.username %>
         <div class="index-profile-actions">
             <%= link_to "Edit Profile", edit_user_path(@user), class: "index-link-to edit" %>
-            <%= link_to 'Delete Profile', user_path(current_user), data: { turbo_method: :delete, turbo_confirm: "Are you sure? (This will also delete all of your articles)" }, class: "index-link-to delete", style: "margin-top:0.3vh" %>
+            <%= link_to 'Delete Profile', destroy_user_path(current_user), data: { turbo_method: :delete, turbo_confirm: "Are you sure? (This will also delete all of your articles)" }, class: "index-link-to delete", style: "margin-top:0.3vh" %>
         </div>
     <% end %>
 </div>

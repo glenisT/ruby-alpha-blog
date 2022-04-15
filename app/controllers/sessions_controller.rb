@@ -21,5 +21,17 @@ class SessionsController < ApplicationController
         flash[:notice] = "Logged out."
         redirect_to root_path
     end
+
+    def destroy_user
+        @user = User.find(params[:id])
+        if current_user != @user
+            flash[:alert] = "You can only edit your own profile!"
+            redirect_to current_user
+        end
+        @user.destroy
+        session[:user_id] = nil
+        flash[:notice] = "Account and all associated articles deleted!"
+        redirect_to root_path
+    end
     
 end

@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'logout' => :destroy, to: 'sessions#destroy'
+
+  get 'destroy_user' => :destroy, to: 'sessions#destroy_user'
   end

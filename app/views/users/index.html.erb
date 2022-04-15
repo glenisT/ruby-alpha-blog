@@ -40,7 +40,7 @@
                     <% if logged_in? && current_user.username == user.username %>
                         <%# shows selected article EDIT page. edit_article_path because in routes, the prefix for edit is edit_article && (article) because we need the id for the path as well%>
                         <%= link_to 'Edit Profile', edit_user_path(user), data: { turbo_method: :get}, class: "index-link-to edit" %>
-                        <%= link_to 'Delete Profile', user_path(current_user), data: { turbo_method: :delete, turbo_confirm: "Are you sure? (This will also delete all of your articles)" }, class: "index-link-to delete" %>
+                        <%= link_to 'Delete Profile', destroy_user_path(current_user), data: { turbo_method: :delete, turbo_confirm: "Are you sure? (This will also delete all of your articles)" }, class: "index-link-to delete" %>
                     <% end %>
                 </div>
                         
